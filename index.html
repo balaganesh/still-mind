@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="description" content="A quiet meditation timer with flowing water and gentle interval bells." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Still Mind" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/public/icons/still-mind-180.png" />
+    <link rel="icon" href="/public/icons/favicon.svg?v=9" type="image/svg+xml" />
+    <link rel="stylesheet" href="/styles.css?v=9" />
+    <title>Still Mind</title>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="meditation" aria-label="Meditation timer">
+        <div class="orb" id="timerOrb">
+          <button class="orb-action" id="startPauseButton" type="button" aria-label="Start meditation">
+            <span class="time" id="timeDisplay" role="timer" aria-live="off">30:00</span>
+            <span class="action-word" id="actionWord">start</span>
+          </button>
+        </div>
+
+        <div class="duration-popover" id="durationPopover" aria-label="Session length" hidden>
+          <button type="button" data-minutes="15">15</button>
+          <button type="button" data-minutes="30">30</button>
+          <button type="button" data-minutes="45">45</button>
+          <button type="button" data-minutes="60">60</button>
+          <button type="button" data-minutes="90">90</button>
+        </div>
+
+        <div class="icon-row">
+          <button class="icon-button active" id="waterToggle" type="button" aria-label="Turn flowing water off" aria-pressed="true">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M12 23V8l13-3v15"/><circle cx="8.5" cy="23" r="3.5"/><circle cx="21.5" cy="20" r="3.5"/></svg>
+          </button>
+          <div class="volume-wrap">
+            <button class="icon-button" id="volumeButton" type="button" aria-label="Adjust water volume" aria-expanded="false">
+              <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 13v6h5l7 6V7l-7 6H6Z"/><path d="M22 12c2.6 2.2 2.6 5.8 0 8M25 9c4.5 3.9 4.5 10.1 0 14"/></svg>
+            </button>
+            <label class="volume-popover" id="volumePopover" aria-label="Water volume" hidden>
+              <input id="volumeSlider" type="range" min="0" max="1" value="0.42" step="0.01" />
+            </label>
+          </div>
+        </div>
+
+        <button class="reset-icon" id="resetButton" type="button" aria-label="End session" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7v5h5M6.5 8.5A7 7 0 1 1 5 14"/></svg>
+        </button>
+        <span class="sr-only" id="statusText" aria-live="polite">Ready</span>
+        <button class="install-button" id="installButton" type="button" hidden>Install</button>
+      </section>
+    </main>
+
+    <audio id="waterAudio" src="/public/audio/flowing-water.mp3" preload="auto" loop playsinline></audio>
+    <audio id="bellAudio" src="/public/audio/temple-bell.mp3" preload="auto" playsinline></audio>
+    <script src="/app.js?v=9" defer></script>
+  </body>
+</html>
