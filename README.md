@@ -4,6 +4,8 @@ A deliberately minimal, installable meditation timer. Choose a multiple of 15 mi
 
 **Live app:** https://stillwater-zeta.vercel.app
 
+![Still Mind meditation timer](still-mind-screenshot.jpg)
+
 There is no framework, account, analytics service, database, or build step. The app is plain HTML, CSS, and JavaScript.
 
 ## Run locally
