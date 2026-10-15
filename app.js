@@ -1,5 +1,3 @@
-const INTERVAL_MS = 15 * 60 * 1000;
-
 const elements = {
   orb: document.querySelector('#timerOrb'),
   durationPopover: document.querySelector('#durationPopover'),
@@ -9,9 +7,6 @@ const elements = {
   reset: document.querySelector('#resetButton'),
   actionWord: document.querySelector('#actionWord'),
   waterToggle: document.querySelector('#waterToggle'),
-  volumeButton: document.querySelector('#volumeButton'),
-  volumePopover: document.querySelector('#volumePopover'),
-  volume: document.querySelector('#volumeSlider'),
   water: document.querySelector('#waterAudio'),
   bellAudio: document.querySelector('#bellAudio'),
   install: document.querySelector('#installButton'),
@@ -48,7 +43,6 @@ async function prepareAudio() {
   const AudioContextClass = window.AudioContext || window.webkitAudioContext;
   if (AudioContextClass && !fallbackAudioContext) fallbackAudioContext = new AudioContextClass();
   if (fallbackAudioContext?.state === 'suspended') await fallbackAudioContext.resume();
-  elements.water.volume = Number(elements.volume.value);
   elements.water.load();
   elements.bellAudio.load();
 }
@@ -137,7 +131,7 @@ function tick() {
   const sessionMs = selectedMinutes * 60 * 1000;
   remainingMs = Math.max(0, endAt - Date.now());
   const elapsed = sessionMs - remainingMs;
-  const completedIntervals = Math.min(Math.floor(elapsed / INTERVAL_MS), selectedMinutes / 15);
+  const completedIntervals = Math.min(Math.floor(elapsed / (sessionMs / 4)), 4);
 
   if (completedIntervals > lastIntervalRung && remainingMs > 500) {
     lastIntervalRung = completedIntervals;
@@ -263,21 +257,11 @@ elements.waterToggle.addEventListener('click', () => {
   elements.waterToggle.classList.toggle('active', enabled);
   syncWater();
 });
-elements.volumeButton.addEventListener('click', () => {
-  const willOpen = elements.volumePopover.hidden;
-  elements.volumePopover.hidden = !willOpen;
-  elements.volumeButton.setAttribute('aria-expanded', String(willOpen));
-});
 document.addEventListener('pointerdown', (event) => {
-  if (!event.target.closest('.volume-wrap')) {
-    elements.volumePopover.hidden = true;
-    elements.volumeButton.setAttribute('aria-expanded', 'false');
-  }
   if (!event.target.closest('.duration-popover') && !event.target.closest('.orb')) {
     elements.durationPopover.hidden = true;
   }
 });
-elements.volume.addEventListener('input', () => { elements.water.volume = Number(elements.volume.value); });
 elements.water.addEventListener('pause', () => {
   if (running && elements.waterToggle.getAttribute('aria-pressed') === 'true') setTimeout(syncWater, 700);
 });

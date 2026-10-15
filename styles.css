@@ -24,7 +24,7 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-button, input { font: inherit; }
+button { font: inherit; }
 button { touch-action: manipulation; }
 
 .shell {
@@ -46,13 +46,10 @@ button { touch-action: manipulation; }
 .duration-popover { position: absolute; z-index: 4; top: calc(min(76vw, 350px) - 65px); left: 50%; transform: translateX(-50%); display: flex; gap: 7px; padding: 8px; border: 1px solid rgba(0,0,0,.08); border-radius: 22px; background: rgba(255,255,255,.98); box-shadow: 0 16px 45px rgba(45,38,37,.18); }
 .duration-popover button { width: 46px; height: 46px; border: 0; border-radius: 15px; background: transparent; color: var(--muted); font-weight: 700; cursor: pointer; }
 .duration-popover button.selected { background: var(--deep); color: white; }
-.icon-row { display: flex; align-items: center; justify-content: center; gap: 22px; margin-top: 38px; }
+.icon-row { display: flex; align-items: center; justify-content: center; margin-top: 38px; }
 .icon-button, .reset-icon { display: grid; place-items: center; width: 52px; height: 52px; border: 1px solid rgba(49,94,75,.14); border-radius: 50%; background: rgba(255,255,251,.72); color: #77867c; cursor: pointer; }
 .icon-button.active { background: var(--deep); color: white; box-shadow: 0 8px 18px rgba(49,94,75,.18); }
 .icon-button svg { width: 23px; height: 23px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.volume-wrap { position: relative; }
-.volume-popover { position: absolute; left: 50%; bottom: 64px; transform: translateX(-50%); width: 48px; height: 166px; padding: 18px 0; border: 1px solid rgba(49,94,75,.12); border-radius: 24px; background: rgba(255,255,251,.96); box-shadow: 0 14px 35px rgba(54,78,63,.16); }
-.volume-popover input { position: absolute; width: 118px; left: -35px; top: 73px; transform: rotate(-90deg); accent-color: var(--deep); }
 .reset-icon { position: absolute; z-index: 2; top: calc(min(76vw, 350px) + 108px); left: 50%; transform: translateX(-50%); width: 40px; height: 40px; margin: 0; background: transparent; border: 0; }
 .reset-icon svg { width: 22px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
 .install-button { margin-top: 20px; border: 0; background: transparent; color: var(--deep); text-decoration: underline; text-underline-offset: 4px; cursor: pointer; }

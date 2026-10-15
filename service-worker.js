@@ -1,6 +1,6 @@
-const CACHE = 'still-mind-v9';
+const CACHE = 'still-mind-v10';
 const ASSETS = [
-  '/', '/index.html', '/styles.css?v=9', '/app.js?v=9', '/manifest.webmanifest',
+  '/', '/index.html', '/styles.css?v=10', '/app.js?v=10', '/manifest.webmanifest',
   '/public/audio/flowing-water.mp3', '/public/icons/favicon.svg',
   '/public/icons/still-mind-180.png', '/public/icons/still-mind-192.png', '/public/icons/still-mind-512.png'
 ];

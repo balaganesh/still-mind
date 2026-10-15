@@ -1,7 +1,7 @@
 {
   "name": "Still Mind",
   "short_name": "Still Mind",
-  "description": "A quiet meditation timer with flowing water and interval bells.",
+  "description": "A quiet meditation timer with flowing water and four evenly spaced bells.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

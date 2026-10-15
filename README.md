@@ -1,6 +1,6 @@
 # Still Mind
 
-A deliberately minimal, installable meditation timer. Choose a multiple of 15 minutes, listen to an optional flowing-water background, and hear a bell at every 15-minute interval.
+A deliberately minimal, installable meditation timer. Choose a multiple of 15 minutes, listen to optional flowing water, and hear four evenly spaced bells during every session.
 
 **Live app:** https://stillwater-zeta.vercel.app
 
